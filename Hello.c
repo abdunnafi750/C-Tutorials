@@ -1,33 +1,33 @@
 #include<stdio.h>
+int Fib(int n);
 int main()
 
 {
-   int a,b,c,n;
-   a = 0;
-   b = 1;
+
+   int a;
    printf("Enter the value of n: ");
-   scanf("%d", &n);
+   scanf("%d", &a);
 
-   if(n == 1)
-   {
-      c = 0;
-   }
-   else if(n == 2)
-   {
-      c = 1;
-   }
-   else
-   {
-      for(int i = 3; i<=n; i++)
-      {
-         c = a+ b;
-         a = b;
-         b = c;
-      }
-
-   }
-
-   printf("The %d th number of the series: %d",n,c);
+   int p = Fib(a);
+   printf("The %d th number of the series is: %d", a, p);
 
    return 0;
+}
+
+int Fib(int n)
+{
+   if(n == 1)
+   {
+      return 0;
+   }
+   if(n == 2)
+   {
+      return 1;
+   }
+   
+   int NumNm1 = Fib(n-1);
+   int NumNm2 = Fib(n-2);
+   int Num = NumNm1 + NumNm2;
+
+   return Num;
 }
